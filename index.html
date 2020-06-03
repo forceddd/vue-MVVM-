@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{person.name}}===={{person.age}}</h2>
+        <h3>{{person.fav}}</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        <h3>{{msg}}</h3>
+        <button v-on:click='handlerClick' v-bind:color="color">v-on</button>
+        <button @click='handlerClick' :color="color">@</button>
+        <div v-text="msg"></div>
+        <div v-html="htmlStr"></div>
+        <input type="text" v-model='msg'>
+        <input type="text" v-model='person.name'>
+        <input type="text" v-model='person.age'>
+    </div>
+    <script src="Observer.js"></script>
+    <script src="MyVue.js"></script>
+    <script>
+        let vm = new MyVue({
+            el: '#app',
+            data: {
+                person: {
+                    name: 'foeceddd',
+                    age: 18,
+                    fav: 'games'
+                },
+                msg: '学习vueMVVM原理',
+                htmlStr: '<h3>大家学的怎么样了<h3/>',
+                color:'red'
+            },
+            methods:{
+                handlerClick(){
+                    // alert('click');
+                    console.log('click');
+                                        
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
